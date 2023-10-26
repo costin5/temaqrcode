@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator de Coduri QR</title>
+</head>
+<body>
+    <h1>Generator de Coduri QR</h1>
+    
+    <label for="data-input">Introduceți datele pentru codul QR:</label>
+    <input type="text" id="data-input" placeholder="Introduceți textul aici...">
+    <button onclick="genereazaQR()">Generează QR</button>
+
+    <br><br>
+    <img id="qr-image" alt="Aici va apărea codul QR generat" style="border: 1px solid black;">
+
+    <script>
+        function genereazaQR() {
+            const data = document.getElementById('data-input').value;
+            const imageUrl = `https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(data)}&size=200x200`;
+            document.getElementById('qr-image').src = imageUrl;
+        }
+    </script>
+</body>
+</html>
